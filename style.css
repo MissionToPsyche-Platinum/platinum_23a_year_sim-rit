@@ -1,0 +1,193 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Satoshi;
+  src: url(Satoshi-Variable.ttf);
+}
+
+:root {
+  --highlight-color: #330099;
+  --primary-color: #FFFFFF;
+  --secondary-color: #000000;
+}
+
+html {
+  font-size: calc(16px + 0.5vmax);
+  font-family: Satoshi, Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  background-color: var(--secondary-color);
+  overflow: scroll;
+  margin-bottom: 50px;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color: var(--secondary-color);
+  padding: 20px 10px;
+  border-bottom: 2px solid var(--highlight-color);
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: var(--primary-color);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  outline-style: solid;
+  outline-style: 4px;
+  outline-color: var(--highlight-color);
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0px;
+  outline-style: none;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+h2 {
+  color: var(--primary-color);
+}
+
+p {
+  color: var(--primary-color);
+}
+
+button {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border: none;
+  text-align: center;
+  padding: 12px;
+  margin: 4px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  outline-style: solid;
+  outline-style: 4px;
+  outline-color: var(--highlight-color);
+}
+
+button:hover {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+a.button {
+  float: left;
+  color: var(--primary-color);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  outline-style: solid;
+  outline-style: 4px;
+  outline-color: var(--highlight-color);
+}
+
+a.button:hover {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+video.portfolio {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+section.vidScrub {
+  height: 1600vh;
+  position: relative;
+}
+
+section.vidScrub:fullscreen {
+  overflow: scroll !important;
+}
+section.vidScrub:-ms-fullscreen {
+  overflow: scroll !important;
+}
+section.vidScrub:-webkit-full-screen {
+  overflow: scroll !important;
+}
+section.vidScrub:-moz-full-screen {
+  overflow: scroll !important;
+}
+
+section.vidScrub div.holder {
+  position: sticky;
+  top: 0;
+}
+
+section.vidScrub video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  margin-top: 50px;
+  border-top: 2px solid var(--highlight-color);
+}
