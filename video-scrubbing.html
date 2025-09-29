@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Scrubbing</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <div class="header">
+      <a href="index.html" class="logo"><img src="Logo_Transparent.png" height="50px" style="margin-bottom: 10px;"></a>
+      <div class="header-right">
+        <a href="javascript:window.history.back()" class="back">Back</a>
+        <a href="index.html">Home</a>
+        <a href="portfolio/portfolio.html">Portfolio</a>
+      </div>
+    </div> 
+    <button onclick="openFullscreen();">Open Video in Fullscreen Mode</button>
+    <button onclick="closeFullscreen();">Leave Fullscreen Mode</button>
+    <p>Press escape at any time to exit fullscreen mode. Press enter to return to the top.</p>
+    <section class="vidScrub">
+      <div class="holder">
+        <video src="test-vid1.mp4" preload="auto" muted loop playsinline>Loading media, please wait...</video>
+      </div>
+    <script src="scrubbing.js"></script>
+    </section>
+    <button onclick="closeFullscreen();">Leave Fullscreen Mode</button>
+    <button onclick="scrollToTop();">Return to top of page</button>
+    <h1>You have reached the end of the experience!</h1>
+    <!--FOOTER-->
+    <center class="footer">
+      <p style="font-size: calc(7px + 0.5vmax); margin-top: 10px;">contact@indigodigi.com<br>Copyright © 2025 Ethan Smith - All Rights Reserved.</p>
+    </center>
+  </body>
+</html>
