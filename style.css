@@ -7,20 +7,20 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: Satoshi;
+/* @font-face {
+  font-family: "Roboto", sans-serif;
   src: url(Satoshi-Variable.ttf);
-}
+} */
 
 :root {
-  --highlight-color: #330099;
-  --primary-color: #FFFFFF;
-  --secondary-color: #000000;
+  --highlight-color: #a53f5b;
+  --primary-color: black;
+  --secondary-color: white;
 }
 
 html {
   font-size: calc(16px + 0.5vmax);
-  font-family: Satoshi, Arial, Helvetica, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   line-height: 1.5;
 }
 
