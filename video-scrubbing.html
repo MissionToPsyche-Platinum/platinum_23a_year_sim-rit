@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Scrubbing</title>
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="/psyche.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
     <div class="header">
-      <a href="index.html" class="logo"><img src="Logo_Transparent.png" height="50px" style="margin-bottom: 10px;"></a>
+      <a href="https://psyche.ssl.berkeley.edu/" class="logo"><img src="psyche.svg" height="50px" style="margin-bottom: 10px;"></a>
       <div class="header-right">
         <a href="javascript:window.history.back()" class="back">Back</a>
         <a href="index.html">Home</a>
@@ -18,7 +19,7 @@
     <button onclick="openFullscreen();">Open Video in Fullscreen Mode</button>
     <button onclick="closeFullscreen();">Leave Fullscreen Mode</button>
     <p>Press escape at any time to exit fullscreen mode. Press enter to return to the top.</p>
-    <section class="vidScrub">
+    <section class="vidScrub" style="background-color: black;">
       <div class="holder">
         <video src="test-vid1.mp4" preload="auto" muted loop playsinline>Loading media, please wait...</video>
       </div>
