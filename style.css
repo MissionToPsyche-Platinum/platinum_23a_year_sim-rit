@@ -34,14 +34,16 @@ body {
 .header {
   overflow: hidden;
   background-color: var(--secondary-color);
-  padding: 20px 10px;
-  border-bottom: 2px solid var(--highlight-color);
+  padding: 5px 5px;
+  border-bottom: 7px solid var(--highlight-color);
+  margin-bottom: 10px;
 }
 
 /* Style the header links */
 .header a {
   float: left;
-  color: var(--primary-color);
+  color: var(--secondary-color);
+  background-color: var(--highlight-color);
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -54,9 +56,10 @@ body {
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header a.logo {
+  background-color: var(--secondary-color);
   font-size: 25px;
   font-weight: bold;
-  padding: 0px;
+  padding-left: 6px;
   outline-style: none;
 }
 
@@ -75,6 +78,7 @@ body {
 /* Float the link section to the right */
 .header-right {
   float: right;
+  margin-top: 10px;
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
@@ -103,8 +107,8 @@ p {
 }
 
 button {
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: var(--highlight-color);
   border: none;
   text-align: center;
   padding: 12px;
@@ -125,6 +129,7 @@ button:hover {
 a.button {
   float: left;
   color: var(--primary-color);
+  background-color: var(--highlight-color);
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -182,6 +187,35 @@ section.vidScrub div.holder {
 }
 
 section.vidScrub video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section.vidScrub2 {
+  height: 1600vh;
+  position: relative;
+}
+
+section.vidScrub2:fullscreen {
+  overflow: scroll !important;
+}
+section.vidScrub2:-ms-fullscreen {
+  overflow: scroll !important;
+}
+section.vidScrub2:-webkit-full-screen {
+  overflow: scroll !important;
+}
+section.vidScrub2:-moz-full-screen {
+  overflow: scroll !important;
+}
+
+section.vidScrub2 div.holder {
+  position: sticky;
+  top: 0;
+}
+
+section.vidScrub2 video {
   width: 100%;
   height: 100%;
   object-fit: cover;
