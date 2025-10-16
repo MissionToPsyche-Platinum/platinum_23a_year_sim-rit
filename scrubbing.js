@@ -1,16 +1,23 @@
 const section = document.querySelector('section.vidScrub')
+const section2 = document.querySelector('section.vidScrub2')
 const vid = section.querySelector('video')
+const vid2 = section2.querySelector('video')
 
 vid.pause()
 
 const scroll = () => {
   const distance = window.scrollY - section.offsetTop
+  const distance2 = window.scrollY - section2.offsetTop
   const total = section.clientHeight - window.innerHeight
+  const total2= section2.clientHeight - window.innerHeight
   const smoothing = 0.01
 
   let percentage = distance / total
+  let percentage2 = distance2 / total2
   percentage = Math.max(0, percentage)
+  percentage2 = Math.max(0, percentage2)
   percentage = Math.min(percentage, 1)
+  percentage2 = Math.min(percentage2, 1)
 
   if (vid.duration > 0) {
     // Simply sets video to current percentage, looks stuttery
@@ -23,6 +30,22 @@ const scroll = () => {
           vid.currentTime += vid.duration * smoothing
         } else if (dif < 0) {
           vid.currentTime -= vid.duration * smoothing
+        } else {break}
+      } else {break}
+    }
+  }
+  
+  if (vid2.duration > 0) {
+    // Simply sets video to current percentage, looks stuttery
+    //vid.currentTime = vid.duration * percentage
+    
+    while (vid2.currentTime != vid2.duration * percentage2) {
+      let dif = percentage2 - (vid2.currentTime / vid2.duration)
+       if (Math.abs(dif) >= smoothing) {
+        if (dif > 0) {
+          vid2.currentTime += vid2.duration * smoothing
+        } else if (dif < 0) {
+          vid2.currentTime -= vid2.duration * smoothing
         } else {break}
       } else {break}
     }
