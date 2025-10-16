@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Scrubbing</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/x-icon" href="/psyche-favicon.png">
     <link href="/psyche.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
@@ -19,12 +20,17 @@
     <button onclick="openFullscreen();">Open Video in Fullscreen Mode</button>
     <button onclick="closeFullscreen();">Leave Fullscreen Mode</button>
     <p>Press escape at any time to exit fullscreen mode. Press enter to return to the top.</p>
-    <section class="vidScrub" style="background-color: black;">
+    <section class="vidScrub" style="background-color: black; height: 2400vh;">
       <div class="holder">
-        <video src="test-vid1.mp4" preload="auto" muted loop playsinline>Loading media, please wait...</video>
+        <video src="anim1.mp4" preload="auto" muted loop playsinline>Loading media, please wait...</video>
       </div>
-    <script src="scrubbing.js"></script>
     </section>
+    <section class="vidScrub2" style="background-color: black; height: 2400vh;">
+      <div class="holder">
+        <video src="anim2.mp4" preload="auto" muted loop playsinline>Loading media, please wait...</video>
+      </div>
+    </section>
+    <script src="scrubbing.js"></script>
     <button onclick="closeFullscreen();">Leave Fullscreen Mode</button>
     <button onclick="scrollToTop();">Return to top of page</button>
     <h1>You have reached the end of the experience!</h1>
