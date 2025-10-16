@@ -6,5 +6,5 @@ These files have been copied as-is from my testbench. You can see them in action
 ## TO DO:
 - [x] Upload
 - [ ] Test Standalone
-- [ ] Conform to PSYCHE style guidelines
+- [x] Conform to PSYCHE style guidelines
 - [ ] Add non-scrolling control buttons
