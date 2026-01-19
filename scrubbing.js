@@ -10,7 +10,7 @@ const scroll = () => {
   const distance2 = window.scrollY - section2.offsetTop
   const total = section.clientHeight - window.innerHeight
   const total2= section2.clientHeight - window.innerHeight
-  const smoothing = 0.01
+  const smoothing = 0.001
 
   let percentage = distance / total
   let percentage2 = distance2 / total2
@@ -54,6 +54,26 @@ const scroll = () => {
 
       /* Get the documentElement (<html>) to display the page in fullscreen */
 var elem = document.documentElement;
+
+function fullscreen() {
+  if (document.fullscreenElement == null) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
+    }
+  }
+}
 
 /* View in fullscreen */
 function openFullscreen() {
