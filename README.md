@@ -3,6 +3,8 @@
 ## Current State:
 These files have been copied as-is from my testbench. You can see them in action [here.](https://indigodigi.com/year-on-psyche)
 
+Video Files are here: [files](https://drive.google.com/drive/folders/1--CYhVEMLqMajXpi-xHujGjQCuo1lipl?usp=sharing)
+
 ## TO DO:
 - [x] Upload
 - [ ] Test Standalone
