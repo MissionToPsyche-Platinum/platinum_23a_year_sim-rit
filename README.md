@@ -7,4 +7,4 @@ These files have been copied as-is from my testbench. You can see them in action
 - [x] Upload
 - [ ] Test Standalone
 - [x] Conform to PSYCHE style guidelines
-- [ ] Add non-scrolling control buttons
+- [ ] ~~Add non-scrolling control buttons~~ Keyboard controlled
