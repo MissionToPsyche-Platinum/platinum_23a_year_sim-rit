@@ -2,6 +2,9 @@ const section = document.querySelector('section.vidScrub')
 const section2 = document.querySelector('section.vidScrub2')
 const vid = section.querySelector('video')
 const vid2 = section2.querySelector('video')
+const smoothing = 0.001
+
+const slides = [0, 0.006, 0.015, 0.067, 0.097, 0.159, 0.181, 0.207, 0.228, 0.256, 0.306, 0.336, 0.351, 0.380, 0.397, 0.442, 0.477, 0.521, 0.542, 0.571, 0.601, 0.636, 0.681, 0.695, 0.704, 0.722, 0.743, 0.766, 0.796, 0.823, 0.855, 0.899, 0.941, 0.967, 1]
 
 vid.pause()
 
@@ -10,7 +13,6 @@ const scroll = () => {
   const distance2 = window.scrollY - section2.offsetTop
   const total = section.clientHeight - window.innerHeight
   const total2= section2.clientHeight - window.innerHeight
-  const smoothing = 0.001
 
   let percentage = distance / total
   let percentage2 = distance2 / total2
@@ -50,6 +52,8 @@ const scroll = () => {
       } else {break}
     }
   }
+  let percent = window.scrollY / document.documentElement.scrollHeight
+  console.log(percent.toFixed(3));
 }
 
       /* Get the documentElement (<html>) to display the page in fullscreen */
@@ -105,11 +109,36 @@ function scrollToTop() {
 });
 }
 
+function scrollToPercentage(percent) {
+  const target = percent * document.documentElement.scrollHeight
+  window.scrollTo({
+    top: target,
+    behavior: 'smooth'
+  });
+}
+
 scroll()
 window.addEventListener('scroll', scroll)
 
-document.addEventListener('keypress', event => {
+document.addEventListener('keydown', event => {
+  let percent = window.scrollY / document.documentElement.scrollHeight /*get current percent*/
+  percent = parseFloat(percent.toFixed(3));
+  console.log(percent);
   if (event.keyCode == 13) {
     scrollToTop();
+  } else if (event.keyCode == 37) { /*previous*/
+    for (let i in slides) {
+      if (percent <= slides[parseInt(i)+1] && percent > slides[i]) { /*decide which slide is previous based on what percent is between*/
+        scrollToPercentage(slides[i]);
+        break;
+      }
+    }
+  } else if (event.keyCode == 39) { /*next*/
+    for (let i in slides) {
+      if (percent >= slides[parseInt(i)-1] && percent < slides[i]) { /*decide which slide is next based on what percent is between*/
+        scrollToPercentage(slides[i]);
+        break;
+      }
+    }
   }
 })
