@@ -2,11 +2,14 @@ const section = document.querySelector('section.vidScrub')
 const section2 = document.querySelector('section.vidScrub2')
 const vid = section.querySelector('video')
 const vid2 = section2.querySelector('video')
-const smoothing = 0.001
+const smoothing = 0.15
 
 const slides = [0, 0.006, 0.015, 0.067, 0.097, 0.159, 0.181, 0.207, 0.228, 0.256, 0.306, 0.336, 0.351, 0.380, 0.397, 0.442, 0.477, 0.521, 0.542, 0.571, 0.601, 0.636, 0.681, 0.695, 0.704, 0.722, 0.743, 0.766, 0.796, 0.823, 0.855, 0.899, 0.941, 0.967, 1]
 
 vid.pause()
+vid2.pause()
+let targetTime1 = 0
+let targetTime2 = 0
 
 const scroll = () => {
   const distance = window.scrollY - section.offsetTop
@@ -21,36 +24,12 @@ const scroll = () => {
   percentage = Math.min(percentage, 1)
   percentage2 = Math.min(percentage2, 1)
 
-  if (vid.duration > 0) {
-    // Simply sets video to current percentage, looks stuttery
-    //vid.currentTime = vid.duration * percentage
-    
-    while (vid.currentTime != vid.duration * percentage) {
-      let dif = percentage - (vid.currentTime / vid.duration)
-       if (Math.abs(dif) >= smoothing) {
-        if (dif > 0) {
-          vid.currentTime += vid.duration * smoothing
-        } else if (dif < 0) {
-          vid.currentTime -= vid.duration * smoothing
-        } else {break}
-      } else {break}
-    }
+  if (Number.isFinite(vid.duration) && vid.duration > 0) {
+    targetTime1 = Math.min(vid.duration - 0.05, Math.max(0, vid.duration * percentage))
   }
-  
-  if (vid2.duration > 0) {
-    // Simply sets video to current percentage, looks stuttery
-    //vid.currentTime = vid.duration * percentage
-    
-    while (vid2.currentTime != vid2.duration * percentage2) {
-      let dif = percentage2 - (vid2.currentTime / vid2.duration)
-       if (Math.abs(dif) >= smoothing) {
-        if (dif > 0) {
-          vid2.currentTime += vid2.duration * smoothing
-        } else if (dif < 0) {
-          vid2.currentTime -= vid2.duration * smoothing
-        } else {break}
-      } else {break}
-    }
+
+  if (Number.isFinite(vid2.duration) && vid2.duration > 0) {
+    targetTime2 = Math.min(vid2.duration - 0.05, Math.max(0, vid2.duration * percentage2))
   }
   let percent = window.scrollY / document.documentElement.scrollHeight
   console.log(percent.toFixed(3));
@@ -119,6 +98,30 @@ function scrollToPercentage(percent) {
 
 scroll()
 window.addEventListener('scroll', scroll)
+
+function animateScrub() {
+  if (Number.isFinite(vid.duration) && vid.duration > 0) {
+    const delta1 = targetTime1 - vid.currentTime
+    if (Math.abs(delta1) > 0.01) {
+      vid.currentTime += delta1 * smoothing
+    } else if (Math.abs(delta1) > 0) {
+      vid.currentTime = targetTime1
+    }
+  }
+
+  if (Number.isFinite(vid2.duration) && vid2.duration > 0) {
+    const delta2 = targetTime2 - vid2.currentTime
+    if (Math.abs(delta2) > 0.01) {
+      vid2.currentTime += delta2 * smoothing
+    } else if (Math.abs(delta2) > 0) {
+      vid2.currentTime = targetTime2
+    }
+  }
+
+  window.requestAnimationFrame(animateScrub)
+}
+
+window.requestAnimationFrame(animateScrub)
 
 document.addEventListener('keydown', event => {
   let percent = window.scrollY / document.documentElement.scrollHeight /*get current percent*/
