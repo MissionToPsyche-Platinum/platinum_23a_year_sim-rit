@@ -24,9 +24,10 @@ html {
 
 body {
   background-color: var(--secondary-color);
-  overflow: scroll;
+  overflow: auto;
   margin-bottom: 50px;
 }
+
 
 /* Style the header with a grey background and some padding */
 .header {
@@ -68,10 +69,10 @@ body {
 
 /* Change the background color on mouse-over */
 .header a:hover {
-  border: 4px solid;
+  border-bottom: 8px solid;
   border-image-slice: 1;
   border-image-source: var(--psyche-grad);
-  margin: 1px;
+  margin: 5px;
 }
 
 .header a.logo:hover {
@@ -123,7 +124,7 @@ button {
   text-align: center;
   padding: 12px;
   margin: 5px;
-  margin-top: 5px;
+  margin-bottom: 9px;
   text-decoration: none;
   font-size: 18px;
   line-height: 25px;
@@ -138,11 +139,10 @@ button {
 button:hover {
   /* background-color: var(--highlight-color);
   color: white; */
-  border: 4px solid;
+  border-bottom: 8px solid;
   border-image-slice: 1;
   border-image-source: var(--psyche-grad);
-  margin: 1px;
-  margin-bottom: 5px;
+  margin: 5px;
 }
 
 a.button {
@@ -184,7 +184,7 @@ video.portfolio {
 
 /* height is equal to the number of frames multiplied by 2.2 and rounded down*/
 section.vidScrub {
-  height: 1639vh;
+  height: 1771vh;
   position: relative;
 }
 
@@ -213,7 +213,7 @@ section.vidScrub video {
 }
 
 section.vidScrub2 {
-  height: 2428vh;
+  height: 2650vh;
   position: relative;
 }
 
