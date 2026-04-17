@@ -7,6 +7,6 @@ Video Files are here: [files](https://drive.google.com/drive/folders/1--CYhVEMLq
 
 ## TO DO:
 - [x] Upload
-- [ ] Test Standalone
+- [x] Test Standalone
 - [x] Conform to PSYCHE style guidelines
 - [ ] ~~Add non-scrolling control buttons~~ Keyboard controlled
